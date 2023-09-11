@@ -45,7 +45,11 @@ function App() {
     <div className="container max-w-3xl relative">
       {openToast && <Toast message="Copied to clipboard!" onClose={handleCloseToast} />}
       <PasswordHeading title="Password Generator" />
-      <PasswordInput setPasswordStrength={setPasswordStrength} passwordData={data?.password} />
+      <PasswordInput
+        setPasswordStrength={setPasswordStrength}
+        passwordData={data?.password}
+        openToast={handleOpenToast}
+      />
       <div className="px-8 py-6 bg-light-dark">
         <PasswordLengthRange passwordLength={passwordLength} setPasswordLength={setPasswordLength} />
         <PasswordSettings passwordSettings={passwordSettings} setPasswordSettings={setPasswordSettings} />
@@ -54,7 +58,6 @@ function App() {
           className="bg-accent flex text-dark text-center items-center justify-center gap-3 font-semibold py-5 px-8 hover:bg-transparent border-transparent border-2 hover:border-accent transition-colors duration-300 ease-in-out w-full hover:text-accent text-xl"
           onClick={() => {
             refetch();
-            handleOpenToast();
           }}
         >
           Generate Password <FaArrowRight />

@@ -5,9 +5,10 @@ import { evaluatePasswordStrength } from "../../evaluatePasswordStrength";
 type PasswordInputProps = {
   passwordData?: string;
   setPasswordStrength: React.Dispatch<React.SetStateAction<PasswordStrength>>;
+  openToast: () => void;
 };
 
-const PasswordInput = ({ setPasswordStrength, passwordData }: PasswordInputProps) => {
+const PasswordInput = ({ setPasswordStrength, passwordData, openToast }: PasswordInputProps) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
@@ -21,7 +22,7 @@ const PasswordInput = ({ setPasswordStrength, passwordData }: PasswordInputProps
     if (inputRef.current) {
       const password = inputRef.current?.value;
       navigator.clipboard.writeText(password);
-      alert("Copied to clipboard");
+      openToast();
     }
   };
   return (
