@@ -1,18 +1,21 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { FaCopy } from "react-icons/fa";
+import { PasswordStrength } from "../../types";
+import { evaluatePasswordStrength } from "../../evaluatePasswordStrength";
+type PasswordInputProps = {
+  passwordData?: string;
+  setPasswordStrength: React.Dispatch<React.SetStateAction<PasswordStrength>>;
+};
 
-const PasswordInput = () => {
+const PasswordInput = ({ setPasswordStrength, passwordData }: PasswordInputProps) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
-  const copyButtonRef = useRef<HTMLButtonElement | null>(null);
-  const [isValidPassword, setIsValidPassword] = useState<boolean>(false);
 
-  const PasswordInputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value.length > 5) {
-      setIsValidPassword(true);
-    } else {
-      setIsValidPassword(false);
+  useEffect(() => {
+    if (passwordData) {
+      const inputPasswordStrength = evaluatePasswordStrength(passwordData);
+      setPasswordStrength(inputPasswordStrength);
     }
-  };
+  }, [passwordData]);
 
   const copyToClipBoard = () => {
     if (inputRef.current) {
@@ -25,18 +28,22 @@ const PasswordInput = () => {
     <div className="h-20 bg-light-dark border-none text-white px-5 mb-8 flex items-center justify-between">
       <input
         type="text"
-        className="bg-light-dark font-bold text-4xl text-white pl-5 placeholder:text-gray inline-block"
+        className="bg-light-dark font-bold text-4xl text-white pl-5 placeholder:text-gray md:w-2/3 block"
         placeholder="P4S$W0rD!"
         ref={inputRef}
-        onChange={PasswordInputHandler}
+        value={passwordData || ""}
+        disabled
+        aria-label="Password"
       />
       <button
+        disabled={!passwordData || passwordData.length === 0}
+        type="button"
+        aria-label="Copy to clipboard"
+        title="Copy to clipboard"
         className="bg-light-dark text-white px-4 py-2 rounded-md"
-        disabled={!isValidPassword}
-        ref={copyButtonRef}
         onClick={copyToClipBoard}
       >
-        <FaCopy color={copyButtonRef.current?.disabled ? "#A4FFAF" : "#807D90"} size={36} />
+        <FaCopy color={!passwordData || passwordData.length === 0 ? "#807D90" : "#A4FFAF"} size={36} />
       </button>
     </div>
   );

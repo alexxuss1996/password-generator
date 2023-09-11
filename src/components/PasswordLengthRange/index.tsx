@@ -1,12 +1,15 @@
-import { useState } from "react";
 import RangeInput from "../RangeInput";
 
-const PasswordLengthRange = () => {
+type PasswordLengthRangeProps = {
+  passwordLength: number;
+  setPasswordLength: React.Dispatch<React.SetStateAction<number>>;
+};
+
+const PasswordLengthRange = ({ passwordLength, setPasswordLength }: PasswordLengthRangeProps) => {
   const onChangeRange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const el = e.target;
     setPasswordLength(el.valueAsNumber);
   };
-  const [passwordLength, setPasswordLength] = useState(0);
   return (
     <div className="mb-8">
       <div className="flex justify-between items-center">
