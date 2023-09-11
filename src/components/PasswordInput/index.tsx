@@ -41,10 +41,10 @@ const PasswordInput = ({ setPasswordStrength, passwordData, openToast }: Passwor
         type="button"
         aria-label="Copy to clipboard"
         title="Copy to clipboard"
-        className="bg-light-dark text-white px-4 py-2 rounded-md"
+        className="bg-light-dark disabled:text-gray hover:text-white text-accent px-4 py-2 rounded-md"
         onClick={copyToClipBoard}
       >
-        <FaCopy color={!passwordData || passwordData.length === 0 ? "#807D90" : "#A4FFAF"} size={36} />
+        <FaCopy size={36} />
       </button>
     </div>
   );
