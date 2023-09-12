@@ -50,7 +50,7 @@ function App() {
         passwordData={data?.password}
         openToast={handleOpenToast}
       />
-      <div className="px-8 py-6 bg-light-dark">
+      <div className="md:px-8 px-4 py-6 bg-light-dark">
         <PasswordLengthRange passwordLength={passwordLength} setPasswordLength={setPasswordLength} />
         <PasswordSettings passwordSettings={passwordSettings} setPasswordSettings={setPasswordSettings} />
         <PasswordStrengthPanel passwordStrength={passwordStrength} />

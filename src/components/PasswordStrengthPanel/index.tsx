@@ -18,7 +18,7 @@ const PasswordStrengthPanel = ({ passwordStrength }: PasswordStrengthPanelProps)
     }
   };
   return (
-    <div className="flex items-center justify-between mb-8 text-white bg-dark p-6">
+    <div className="flex items-center justify-between mb-8 text-white bg-dark px-3 py-5 md:p-6">
       <span className="font-bold uppercase text-xl text-gray">Strenth</span>
       <div className="flex flex-row">
         <p className="mr-4 font-semibold uppercase text-2xl">{passwordStrength}</p>

@@ -26,10 +26,10 @@ const PasswordInput = ({ setPasswordStrength, passwordData, openToast }: Passwor
     }
   };
   return (
-    <div className="h-20 bg-light-dark border-none text-white px-5 mb-8 flex items-center justify-between">
+    <div className="h-20 bg-light-dark border-none text-white px-1 md:px-5 mb-8 flex items-center justify-between">
       <input
         type="text"
-        className="bg-light-dark font-bold text-4xl text-white pl-5 placeholder:text-gray max-w-xs block"
+        className="bg-light-dark font-bold md:text-4xl text-white pl-5 placeholder:text-gray text-xl max-w-[200px] md:max-w-xs block"
         placeholder="P4S$W0rD!"
         ref={inputRef}
         value={passwordData || ""}

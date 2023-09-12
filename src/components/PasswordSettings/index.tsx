@@ -6,7 +6,7 @@ type PasswordSettingsProps = {
 };
 const PasswordSettings = ({ passwordSettings, setPasswordSettings }: PasswordSettingsProps) => {
   return (
-    <ul className="mb-8 font-bold text-xl flex flex-col text-white items-start gap-y-4">
+    <ul className="mb-8 font-bold md:text-lg lg:text-xl flex flex-col text-white items-start gap-y-4">
       <li className="flex items-center">
         <input
           type="checkbox"
