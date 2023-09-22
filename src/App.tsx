@@ -55,10 +55,11 @@ function App() {
         <PasswordSettings passwordSettings={passwordSettings} setPasswordSettings={setPasswordSettings} />
         <PasswordStrengthPanel passwordStrength={passwordStrength} />
         <button
-          className="bg-accent flex text-dark text-center items-center justify-center gap-3 font-semibold py-5 px-8 hover:bg-transparent border-transparent border-2 hover:border-accent transition-colors duration-300 ease-in-out w-full hover:text-accent text-xl"
+          className="bg-accent flex text-dark text-center items-center justify-center gap-3 font-semibold py-5 px-8 hover:bg-transparent border-transparent border-2 hover:border-accent transition-colors duration-300 ease-in-out w-full hover:text-accent text-xl disabled:bg-gray"
           onClick={() => {
             refetch();
           }}
+          disabled={passwordLength === 0}
         >
           Generate Password <FaArrowRight />
         </button>
