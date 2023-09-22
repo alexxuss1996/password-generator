@@ -26,10 +26,10 @@ const PasswordInput = ({ setPasswordStrength, passwordData, openToast }: Passwor
     }
   };
   return (
-    <div className="h-20 bg-light-dark border-none text-white px-1 md:px-5 mb-8 flex items-center justify-between">
+    <div className="h-20 overflow-hidden bg-light-dark border-none text-white px-1 md:px-5 mb-8 flex items-center justify-between">
       <input
         type="text"
-        className="bg-light-dark font-bold md:text-4xl text-white pl-5 placeholder:text-gray text-xl max-w-[200px] md:max-w-xs block"
+        className="bg-light-dark justify-start font-bold md:text-4xl text-white placeholder:text-gray md:pl-0 px-4 text-xl md:max-w-md max-w-xs block"
         placeholder="P4S$W0rD!"
         ref={inputRef}
         value={passwordData || ""}
@@ -41,10 +41,10 @@ const PasswordInput = ({ setPasswordStrength, passwordData, openToast }: Passwor
         type="button"
         aria-label="Copy to clipboard"
         title="Copy to clipboard"
-        className="bg-light-dark disabled:text-gray hover:text-white text-accent px-4 py-2 rounded-md"
+        className="bg-light-dark disabled:text-gray hover:text-white text-accent p-2 md:pl-4"
         onClick={copyToClipBoard}
       >
-        <FaCopy size={36} />
+        <FaCopy className="text-xl md:text-3xl" />
       </button>
     </div>
   );
