@@ -1,4 +1,4 @@
-import { PasswordStrength } from "./types";
+import { PasswordStrength } from "../types";
 
 export function evaluatePasswordStrength(password: string): PasswordStrength {
   const regexWeak = /^(?=.*[a-z])(?=.*[A-Z]).{8,}$/;

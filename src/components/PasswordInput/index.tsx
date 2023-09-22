@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { FaCopy } from "react-icons/fa";
 import { PasswordStrength } from "../../types";
-import { evaluatePasswordStrength } from "../../evaluatePasswordStrength";
+import { evaluatePasswordStrength } from "../../utils/evaluatePasswordStrength";
 type PasswordInputProps = {
   passwordData?: string;
   setPasswordStrength: React.Dispatch<React.SetStateAction<PasswordStrength>>;

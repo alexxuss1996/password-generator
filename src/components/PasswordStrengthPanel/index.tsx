@@ -1,5 +1,5 @@
 import { PasswordStrength } from "../../types";
-import { getSticksBackgroundColor } from "../../getSticksBackgroundColor";
+import { getSticksBackgroundColor } from "../../utils/getSticksBackgroundColor";
 
 type PasswordStrengthPanelProps = {
   passwordStrength: PasswordStrength;
