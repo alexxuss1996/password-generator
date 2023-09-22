@@ -16,7 +16,7 @@ const PasswordLengthRange = ({ passwordLength, setPasswordLength }: PasswordLeng
         <h2 className="font-bold text-2xl">Character Length</h2>
         <span className="font-bold text-2xl md:text-4xl text-accent">{passwordLength}</span>
       </div>
-      <RangeInput onChange={onChangeRange} value={passwordLength} defaultValue={0} min={0} max={24} step={1} />
+      <RangeInput onChange={onChangeRange} value={passwordLength} defaultValue={0} min={0} max={16} step={1} />
     </div>
   );
 };
